@@ -1,0 +1,15 @@
+static Int64 Fast_finding_balance(Int64 a, Int64 t, Int64 n)
+{
+	string str = Convert.ToString(t, 2);
+        Int64 changeablea = a;
+       	str = str.Remove(0, 1);
+        while (str != "")
+        {
+        	if (str[0] == '1')
+                	changeablea = (Convert.ToInt64(Math.Pow(changeablea, 2)) * a) % n;
+                else
+                	changeablea = Convert.ToInt64(Math.Pow(changeablea, 2)) % n;
+                str = str.Remove(0, 1);
+        }
+        return changeablea;
+}
